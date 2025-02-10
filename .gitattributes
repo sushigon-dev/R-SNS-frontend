@@ -1,0 +1,6 @@
+# すべてのテキストファイルの改行コードをLFに統一
+* text=auto eol=lf
+
+# バイナリファイルは改行を変更しない
+*.png binary
+*.jpg binary
