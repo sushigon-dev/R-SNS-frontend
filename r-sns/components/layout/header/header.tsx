@@ -8,7 +8,7 @@ const isLogin = true;
 
 function Header() {
   return (
-    <div className="divide-y border-b border-border">
+    <header className="fixed top-0 left-0 w-full bg-background divide-y border-b border-border">
       <div className="flex justify-between px-4 lg:px-6">
         <div className="flex items-center space-x-4 md:space-x-10 pt-2">
           <Link href="/">
@@ -53,7 +53,7 @@ function Header() {
           )}
         </div>
       </div>
-    </div>
+    </header>
   );
 }
 

@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Noto_Sans_JP } from "next/font/google";
 
+import { Header } from "@/components/layout";
+
 const notoSansJP = Noto_Sans_JP({
   weight: ["400", "700"],
   subsets: ["latin"],
@@ -35,7 +37,8 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased ${notoSansJP.className}`}
       >
-        {children}
+        <Header />
+        <main className="pt-16">{children}</main>
       </body>
     </html>
   );
