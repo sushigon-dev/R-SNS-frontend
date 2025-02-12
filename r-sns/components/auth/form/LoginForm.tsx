@@ -34,51 +34,50 @@ function LoginForm() {
   return (
     <div className="flex flex-col p-2">
       {/* <p className="text-lg mx-auto">ログイン</p> */}
-      <div className="flex flex-col gap-2 m-2 border-b">
-        <Form {...form}>
-          <form
-            onSubmit={form.handleSubmit(handleSubmit)}
-            className="flex flex-col gap-4"
-          >
-            <FormField
-              control={form.control}
-              name="email"
-              render={({ field }) => (
-                <FormItem>
-                  <Label
-                    htmlFor="email"
-                    className="font-medium text-secondary-foreground"
-                  >
-                    Email
-                  </Label>
-                  <FormControl>
-                    <Input id="email" type="email" {...field} />
-                  </FormControl>
-                </FormItem>
-              )}
-            />
-            <FormField
-              control={form.control}
-              name="password"
-              render={({ field }) => (
-                <FormItem>
-                  <Label
-                    htmlFor="password"
-                    className="font-medium text-secondary-foreground"
-                  >
-                    Password
-                  </Label>
-                  <FormControl>
-                    <Input id="password" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            <Button type="submit">ログイン</Button>
-          </form>
-        </Form>
-      </div>
+      <Form {...form}>
+        <form
+          onSubmit={form.handleSubmit(handleSubmit)}
+          className="flex flex-col gap-4 m-2"
+        >
+          <FormField
+            control={form.control}
+            name="email"
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor="email"
+                  className="font-medium text-secondary-foreground"
+                >
+                  E-mail
+                </Label>
+                <FormControl>
+                  <Input id="email" type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <FormField
+            control={form.control}
+            name="password"
+            render={({ field }) => (
+              <FormItem>
+                <Label
+                  htmlFor="password"
+                  className="font-medium text-secondary-foreground"
+                >
+                  Password
+                </Label>
+                <FormControl>
+                  <Input id="password" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          <Button type="submit">ログイン</Button>
+        </form>
+      </Form>
 
       <div className="relative flex items-center my-4">
         <div className="flex-grow border-t border-border"></div>
