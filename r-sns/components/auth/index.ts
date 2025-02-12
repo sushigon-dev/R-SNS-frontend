@@ -1,6 +1,6 @@
-import LoginButton from "./button/LoginButton";
-import LogoutButton from "./button/LogoutButton";
-import RegisterButton from "./button/RegisterButton";
+import LoginButton from "./trigger/LoginButton";
+import LogoutButton from "./trigger/LogoutButton";
+import RegisterButton from "./trigger/RegisterButton";
 
 import Account from "./account/Account";
 
