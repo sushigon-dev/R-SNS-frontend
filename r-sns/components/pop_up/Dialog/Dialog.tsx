@@ -1,35 +1,26 @@
 import React from "react";
 import * as dialog from "@/components/ui/dialog";
+import type PopUpProps from "../types/pop_up_props";
 
-// import {
-//   Dialog,
-//   DialogClose,
-//   DialogContent,
-//   DialogDescription,
-//   DialogFooter,
-//   DialogHeader,
-//   DialogTitle,
-//   DialogTrigger,
-// } from "@/components/ui/dialog";
+type DialogProps = PopUpProps;
 
-interface DialogProps {
-  trigger: React.ReactNode;
-  title: string;
-  child: React.ReactNode;
-}
-
-export function Dialog({ trigger, title, child }: DialogProps) {
+export function Dialog({
+  title,
+  discrition,
+  children,
+  open,
+  onOpenChange,
+}: DialogProps) {
   return (
-    <dialog.Dialog>
-      <dialog.DialogTrigger asChild>{trigger}</dialog.DialogTrigger>
+    <dialog.Dialog open={open} onOpenChange={onOpenChange}>
       <dialog.DialogContent className="sm:max-w-md">
         <dialog.DialogHeader>
           <dialog.DialogTitle>{title}</dialog.DialogTitle>
-          {/* <dialog.DialogDescription>
-            ここに説明文を入れることができるよ
-          </dialog.DialogDescription> */}
+          {discrition && (
+            <dialog.DialogDescription>{discrition}</dialog.DialogDescription>
+          )}
         </dialog.DialogHeader>
-        {child}
+        {children}
       </dialog.DialogContent>
     </dialog.Dialog>
   );

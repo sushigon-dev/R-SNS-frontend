@@ -2,9 +2,7 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { LoginButton, RegisterButton, Account } from "@/components/auth";
-
-const isLogin = true;
+import { AuthField, AuthAccountField } from "@/components/auth";
 
 function Header() {
   return (
@@ -35,23 +33,7 @@ function Header() {
             </Link>
           </nav>
         </div>
-        <div className="flex items-center gap-4">
-          {isLogin ? (
-            <Account
-              username="寿限無寿限無五却のすりきれ海砂利水魚の水行末雲来末風来末食う寝る処に住む処
-              藪ら柑子の藪柑子パイポパイポパイポのシューリンガンシューリンガンのグーリンダイグーリンダイのポンポコピーのポンポコナーの長久命の長助"
-              userlink="/profile"
-              avatarSrc="/oauth_logo/github.svg"
-              avaterAlt="JD"
-              avaterFallback="JD"
-            />
-          ) : (
-            <>
-              <LoginButton className="bg-backgroung text-primary border border-primary hover:bg-gray-200" />
-              <RegisterButton />
-            </>
-          )}
-        </div>
+        <AuthAccountField loginButtonClassName="bg-backgroung text-primary border border-primary hover:bg-gray-200" />
       </div>
     </header>
   );
