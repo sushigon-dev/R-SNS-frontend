@@ -1,6 +1,6 @@
 interface PopUpProps {
   title: string;
-  discrition?: string;
+  description?: string;
   children: React.ReactNode;
   open: boolean;
   onOpenChange: (open: boolean) => void;
