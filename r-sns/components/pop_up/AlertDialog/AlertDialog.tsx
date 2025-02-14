@@ -1,38 +1,29 @@
 import React from "react";
 import * as alertDialog from "@/components/ui/alert-dialog";
-
-// import {
-//   AlertDialog,
-//   AlertDialogPortal,
-//   AlertDialogOverlay,
-//   AlertDialogTrigger,
-//   AlertDialogContent,
-//   AlertDialogHeader,
-//   AlertDialogFooter,
-//   AlertDialogTitle,
-//   AlertDialogDescription,
-//   AlertDialogAction,
-//   AlertDialogCancel,
-// } from "@/components/ui/alert-dialog";
-
+import { twMerge } from "tailwind-merge";
 interface AlertDialogProps {
-  trigger: React.ReactNode;
   title: string;
   descritpion: string;
-  action: React.MouseEventHandler<HTMLButtonElement>;
+  cancelMessage: string;
+  actionMessage: string;
+  actionVariant: "default" | "destructive";
+  actionOnClick: () => void;
+  open: boolean;
+  onOpenChange: (open: boolean) => void;
 }
 
 function AlertDialog({
-  trigger,
   title,
   descritpion,
-  action,
+  cancelMessage = "キャンセル",
+  actionMessage = "続ける",
+  actionVariant = "default",
+  actionOnClick,
+  open,
+  onOpenChange,
 }: AlertDialogProps) {
   return (
-    <alertDialog.AlertDialog>
-      <alertDialog.AlertDialogTrigger asChild>
-        {trigger}
-      </alertDialog.AlertDialogTrigger>
+    <alertDialog.AlertDialog open={open} onOpenChange={onOpenChange}>
       <alertDialog.AlertDialogContent>
         <alertDialog.AlertDialogHeader>
           <alertDialog.AlertDialogTitle>{title}</alertDialog.AlertDialogTitle>
@@ -42,10 +33,17 @@ function AlertDialog({
         </alertDialog.AlertDialogHeader>
         <alertDialog.AlertDialogFooter>
           <alertDialog.AlertDialogCancel>
-            キャンセル
+            {cancelMessage}
           </alertDialog.AlertDialogCancel>
-          <alertDialog.AlertDialogAction onClick={action}>
-            続ける
+          <alertDialog.AlertDialogAction
+            onClick={actionOnClick}
+            className={
+              actionVariant === "destructive"
+                ? "bg-destructive ring-destructive, text-destructive-foreground"
+                : ""
+            }
+          >
+            {actionMessage}
           </alertDialog.AlertDialogAction>
         </alertDialog.AlertDialogFooter>
       </alertDialog.AlertDialogContent>
@@ -54,3 +52,4 @@ function AlertDialog({
 }
 
 export default AlertDialog;
+export type { AlertDialogProps };
