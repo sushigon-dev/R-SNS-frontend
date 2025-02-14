@@ -1,12 +1,12 @@
 import React from "react";
 import * as drawer from "@/components/ui/drawer";
-import type PopUpProps from "../types/pop_up_props";
+import type PopUpProps from "../pop_up_props";
 
 type DrawerProps = PopUpProps;
 
 function Drawer({
   title,
-  discrition,
+  description,
   children,
   open,
   onOpenChange,
@@ -16,8 +16,8 @@ function Drawer({
       <drawer.DrawerContent>
         <drawer.DrawerHeader className="text-left">
           <drawer.DrawerTitle>{title}</drawer.DrawerTitle>
-          {discrition && (
-            <drawer.DrawerDescription>{discrition}</drawer.DrawerDescription>
+          {description && (
+            <drawer.DrawerDescription>{description}</drawer.DrawerDescription>
           )}
         </drawer.DrawerHeader>
         {children}
