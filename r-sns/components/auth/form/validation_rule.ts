@@ -1,7 +1,5 @@
 import * as z from "zod";
 
-//　バリデーションルール
-// TODO: 複数のエラー時のメッセージ
 const formSchema = z.object({
   email: z
     .string()
