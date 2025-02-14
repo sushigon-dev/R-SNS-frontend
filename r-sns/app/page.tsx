@@ -2,7 +2,9 @@
 
 import Image from "next/image";
 import { Zen_Kaku_Gothic_New } from "next/font/google";
-import { LoginButton, RegisterButton } from "@/components/auth";
+import { AuthField, LogoutForm } from "@/components/auth";
+import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 const zenKakuGothicNew = Zen_Kaku_Gothic_New({
   weight: ["400", "700"],
@@ -12,6 +14,8 @@ const zenKakuGothicNew = Zen_Kaku_Gothic_New({
 });
 
 function RootPage() {
+  const [open, setOpen] = useState<boolean>(false);
+
   return (
     <>
       <div className="fixed right-6 bottom-0 w-10/12 h-5/6 z-[-1] opacity-30 overflow-hidden">
@@ -37,10 +41,12 @@ function RootPage() {
           <br />
           コメントでアドバイスや励ましをもらいながら、みんなと一緒に続ける力を育てましょう！
         </p>
-        <div className="flex items-center gap-6 my-4 mx-auto md:mx-4">
-          <LoginButton className="bg-backgroung text-primary text-xl border p-6 border-primary hover:bg-gray-200" />
-          <RegisterButton className="text-xl p-6">今すぐ始める</RegisterButton>
-        </div>
+        <AuthField
+          className="flex items-center gap-6 my-4 mx-auto md:mx-4"
+          registerButtonLabel="今すぐ始める"
+          registerButtonClassName="text-xl p-6"
+          loginButtonClassName="bg-backgroung text-primary text-xl border p-6 border-primary hover:bg-gray-200"
+        />
       </div>
     </>
   );
